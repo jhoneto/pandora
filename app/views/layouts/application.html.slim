@@ -9,4 +9,10 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
+    - if notice
+      p.alert.alert-success = notice
+    - if alert
+      p.alert.alert-danger = alert
+    - if current_user
+      = button_to "Log Out", destroy_user_session_path, method: :delete
     = yield
