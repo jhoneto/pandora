@@ -85,4 +85,5 @@ end
 
 gem 'bootstrap', '~> 5.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'slim', '~> 4.1'
