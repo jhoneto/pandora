@@ -51,6 +51,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
@@ -86,4 +87,5 @@ end
 gem 'bootstrap', '~> 5.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'pundit', '~> 2.2'
 gem 'slim', '~> 4.1'
