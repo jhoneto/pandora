@@ -43,7 +43,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      #raise NotImplementedError, "You must define #resolve in #{self.class}"
+      # raise NotImplementedError, "You must define #resolve in #{self.class}"
       scope.where(organization_id: user.organization_id)
     end
 
@@ -55,8 +55,7 @@ class ApplicationPolicy
   private
 
   def verify_access(action)
-
-    model = self.class.to_s.gsub('Policy','').underscore.downcase
-    user.has_access?("#{model}_#{action}")
+    model = self.class.to_s.gsub('Policy', '').underscore.downcase
+    user.access?("#{model}_#{action}")
   end
 end

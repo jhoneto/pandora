@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry-validation'
 require 'dry/monads/result'
 require 'dry/core'
@@ -14,12 +16,12 @@ class ApplicationService
     return Failure.new(validation.errors.to_h) unless validation.success?
 
     new.execute(params)
-  rescue StandardError => error
-    handle_error(error)
+  rescue StandardError => e
+    handle_error(e)
   end
 
   def self.handle_error(error)
-    raise error unless permissible_errors.any? { |type| error.is_a?(type) }
+    raise(error) unless permissible_errors.any? { |type| error.is_a?(type) }
 
     Failure.new(error)
   end

@@ -9,14 +9,13 @@ class BaseController < ApplicationController
   after_action :verify_authorized
 
   def user_not_authorized
-    flash[:alert] = "Seu usuário não possui autorização para essa ação."
-    redirect_to(request.referrer || root_path)
+    flash[:alert] = 'Seu usuário não possui autorização para essa ação.'
+    redirect_to(request.referer || root_path)
   end
 
   private
 
   def authorize_action
-    authorize controller_name.classify.constantize
+    authorize(controller_name.classify.constantize)
   end
-
 end
